@@ -31,10 +31,32 @@ var Checks = React.createClass({
   }
 });
 
+var NameSearch = React.createClass({
+  getInitialState: function() {
+    return { term: this.props.term };
+  },
+  handleChange: function(event) {
+    this.setState({ term: event.target.value });
+  },
+  handleClick: function() {
+    window.location = "/check/" + this.state.term;
+  },
+  render: function() {
+    return (
+      <header>
+        <h1>Vetted Name</h1>
+        <input type="text" value={this.state.term} onChange={this.handleChange} />
+        <button onClick={this.handleClick}>Search</button>
+      </header>
+    )
+  }
+});
+
 var Vetted = React.createClass({
   render: function() {
     return (
       <div>
+        <NameSearch term={this.props.query.term} />
         <Checks checks={this.props.query.checks}/>
       </div>
     )
