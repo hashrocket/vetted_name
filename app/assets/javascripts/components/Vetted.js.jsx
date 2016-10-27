@@ -8,9 +8,12 @@ var Check = React.createClass({
     const key = String(this.props.check.passed);
     return this.statusMap[key]
   },
+  checkClassName: function() {
+    return 'check ' + this.statusMessage();
+  },
   render: function() {
     return (
-      <div className="check">
+      <div className={this.checkClassName()}>
         <h1>{this.props.check.name}</h1>
         <p>{this.statusMessage()}</p>
       </div>
