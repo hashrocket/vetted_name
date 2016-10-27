@@ -3,6 +3,13 @@ class Query < ApplicationRecord
 
   after_create :perform_checks
 
+  def as_json(*_)
+    {
+      term: term,
+      checks: checks
+    }
+  end
+
   private
 
   def perform_checks

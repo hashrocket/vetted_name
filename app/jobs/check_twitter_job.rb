@@ -6,7 +6,7 @@ class CheckTwitterJob < ApplicationJob
   def perform(check_id)
     @check = Check.find check_id
     check.update_attributes passed: passed
-    QueryChannel.broadcast_to query, check
+    QueryChannel.broadcast_to query, { check: check }
   end
 
   def passed

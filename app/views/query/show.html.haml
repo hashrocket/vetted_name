@@ -1,4 +1,6 @@
 %h1= query.term
 
+#root
+
 :javascript
-  check_query('#{query.term}');
+  DisplayResults.bootstrap(#{query.to_json});
