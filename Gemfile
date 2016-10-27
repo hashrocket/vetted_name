@@ -12,6 +12,9 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jbuilder'
+gem 'faraday'
+gem 'decent_exposure'
+gem 'haml'
 
 group :development, :test do
   gem 'pry-rails'
