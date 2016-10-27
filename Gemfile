@@ -15,6 +15,7 @@ gem 'jbuilder'
 gem 'faraday'
 gem 'decent_exposure'
 gem 'haml'
+gem 'react-rails'
 
 group :development, :test do
   gem 'pry-rails'
