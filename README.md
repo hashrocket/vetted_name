@@ -1,4 +1,9 @@
-# README
+# Vetted Name
+
+[![CircleCI][status]][circle]
+
+[status]: https://circleci.com/gh/hashrocket/vetted_name/tree/master.svg?style=svg&circle-token=5424a3c33bb6ec328b01e98c65a104866001c858
+[circle]: https://circleci.com/gh/hashrocket/vetted_name/tree/master
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
