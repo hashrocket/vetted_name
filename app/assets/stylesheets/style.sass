@@ -12,59 +12,61 @@ input:focus, button:focus
 
 header
   margin: 50px 0
+
   h1
     color: #012E5D
     font-family: "Futura-CondensedExtraBold"
     font-size: 60px
     text-transform: uppercase
 
-header input
-  background-color: #fafafa
-  border: none
-  border-bottom: 5px solid #FE361D
-  color: #333
-  font-size: 30px
-  padding: 4px 12px
-  width: 478px
-
-  &:focus
-    background-color: #FE361D
-    border-top: 5px solid #FE361D
-
-header button
-  background-color: #ccc
-  border: 5px solid #ccc
-  color: #333
-  font-size: 30px
-  margin-left: 20px
-  padding: 4px 12px
-  text-transform: lowercase
-
-  &:hover
+  input
     background-color: #fafafa
-    border: 5px solid #012E5D
-    color: #012E5D
-    cursor: pointer
+    border: none
+    border-bottom: 5px solid #FE361D
+    color: #333
+    font-size: 30px
+    padding: 4px 12px
+    width: 478px
 
-.check
-  height: 260px
-  float: left
-  margin-right: 20px
-  width: 200px
+    &:focus
+      background-color: #FE361D
+      border-top: 5px solid #FE361D
 
-.check.pending
-  background-color: #fff766
+  button
+    background-color: #ccc
+    border: 5px solid #ccc
+    color: #333
+    font-size: 30px
+    margin-left: 20px
+    padding: 4px 12px
+    text-transform: lowercase
 
-.check.passed
-  background-color: green
+    &:hover
+      background-color: #fafafa
+      border: 5px solid #012E5D
+      color: #012E5D
+      cursor: pointer
 
-.check.failed
-  background-color: red
+.checks
+  .check
+    height: 260px
+    float: left
+    margin-right: 20px
+    width: 200px
+
+    &.pending
+      background-color: #fff766
+
+    &.passed
+      background-color: green
+
+    &.failed
+      background-color: red
+
+    h1
+      border-bottom: 1px solid #000
+      font-size: 20px
+      text-align: center
 
 .checks > .check:last-child
   margin-right: 0px
-
-.check h1
-  border-bottom: 1px solid #000
-  font-size: 20px
-  text-align: center
