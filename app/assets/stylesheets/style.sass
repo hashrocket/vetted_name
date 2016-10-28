@@ -1,23 +1,50 @@
-#root
+body
+  background-color: #fafafa
   font-family: helvetica
+
+input:focus, button:focus
+  outline: none
+
+#root
   margin: 0px auto
   overflow: hidden
   width: 640px
 
 header
   margin: 50px 0
+  h1
+    color: #012E5D
+    font-family: "Futura-CondensedExtraBold"
+    font-size: 60px
+    text-transform: uppercase
 
 header input
-  border: 1px solid #000
+  background-color: #fafafa
+  border: none
+  border-bottom: 5px solid #FE361D
+  color: #333
   font-size: 30px
-  padding: 4px 8px
-  width: 490px
+  padding: 4px 12px
+  width: 478px
+
+  &:focus
+    background-color: #FE361D
+    border-top: 5px solid #FE361D
 
 header button
-  border: 1px solid #000
+  background-color: #ccc
+  border: 5px solid #ccc
+  color: #333
   font-size: 30px
   margin-left: 20px
-  padding: 4px 8px
+  padding: 4px 12px
+  text-transform: lowercase
+
+  &:hover
+    background-color: #fafafa
+    border: 5px solid #012E5D
+    color: #012E5D
+    cursor: pointer
 
 .check
   height: 260px
