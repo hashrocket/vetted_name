@@ -49,7 +49,7 @@ var NameSearch = React.createClass({
       <header>
         <h1>Vetted Name</h1>
         <input type="text" value={this.state.term} onChange={this.handleChange} />
-        <button onClick={this.handleClick}>Search</button>
+        <button onClick={this.handleClick}>Check</button>
       </header>
     )
   }
