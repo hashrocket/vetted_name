@@ -9,6 +9,8 @@ class CheckTwitterJob < ApplicationJob
     QueryChannel.broadcast_to query, { check: check }
   end
 
+  private
+
   def passed
     !response.success?
   end
