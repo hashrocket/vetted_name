@@ -8,8 +8,8 @@ describe 'Query' do
 
       query = Query.create term: 'hashrocket'
 
-      expect(query.checks.count).to eq 2
-      expect(adapter.enqueued_jobs.count).to eq 2
+      expect(query.checks.count).to eq 3
+      expect(adapter.enqueued_jobs.count).to eq 3
     end
   end
 end
