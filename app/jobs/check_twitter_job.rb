@@ -10,18 +10,23 @@ class CheckTwitterJob < ApplicationJob
   private
 
   def passed
-    !response.success?
+    !!check_username
   end
 
-  def response
-    @response ||= Faraday.get "https://twitter.com/#{term}"
+  def check_username
+    json = JSON.parse response_body
+    json['valid']
   end
 
-  def term
-    query.term
+  def response_body
+    @response_body ||= Faraday.get(url).body
   end
 
-  def query
-    check.query
+  def url
+    "https://twitter.com/users/username_available?username=#{username}"
+  end
+
+  def username
+    check.query.term
   end
 end
