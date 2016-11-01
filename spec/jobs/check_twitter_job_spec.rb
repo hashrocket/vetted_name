@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe CheckTwitterJob do
-  let(:service) { Service.create name: 'Twitter', job_klass: 'CheckTwitterJob' }
-  let(:query) { Query.create term: 'hashrocket' }
+  let(:service) { FactoryGirl.create :twitter_service }
+  let(:query) { FactoryGirl.create :query }
   let(:check) { query.checks.create service: service }
+
   let(:response) { double(:response, body: body) }
 
   before do
