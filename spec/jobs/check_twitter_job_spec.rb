@@ -18,7 +18,7 @@ describe CheckTwitterJob do
     it 'marks the check as not passed and sends a broadcast' do
       expect(QueryChannel).to receive(:broadcast_to).
         with(query, { check: check })
-      CheckTwitterJob.perform_now check.id
+      CheckTwitterJob.perform_now check.id, query.id
       expect(check.reload.passed).to eq false
     end
   end
@@ -29,7 +29,7 @@ describe CheckTwitterJob do
     it 'marks the check as passed and sends a broadcast' do
       expect(QueryChannel).to receive(:broadcast_to).
         with(query, { check: check })
-      CheckTwitterJob.perform_now check.id
+      CheckTwitterJob.perform_now check.id, query.id
       expect(check.reload.passed).to eq true
     end
   end

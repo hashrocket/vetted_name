@@ -1,11 +1,4 @@
-class CheckTwitterJob < ApplicationJob
-  attr_accessor :check
-
-  def perform(check_id)
-    @check = Check.find check_id
-    check.update_attributes passed: passed
-    QueryChannel.broadcast_to query, { check: check }
-  end
+class CheckTwitterJob < BaseCheckJob
 
   private
 
@@ -28,9 +21,5 @@ class CheckTwitterJob < ApplicationJob
 
   def username
     query.term
-  end
-
-  def query
-    check.query
   end
 end

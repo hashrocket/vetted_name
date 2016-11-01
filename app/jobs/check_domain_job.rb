@@ -1,11 +1,4 @@
-class CheckDomainJob < ApplicationJob
-  attr_accessor :check
-
-  def perform(check_id)
-    @check = Check.find check_id
-    check.update_attributes passed: passed
-    QueryChannel.broadcast_to query, { check: check }
-  end
+class CheckDomainJob < BaseCheckJob
 
   private
 
@@ -14,14 +7,10 @@ class CheckDomainJob < ApplicationJob
   end
 
   def response
-    @response ||= Faraday.get "http://#{term}.com"
+    @response ||= Faraday.get "http://#{domain}.com"
   end
 
-  def term
+  def domain
     query.term
-  end
-
-  def query
-    check.query
   end
 end

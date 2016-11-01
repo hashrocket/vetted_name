@@ -7,6 +7,6 @@ class Service < ApplicationRecord
 
   def perform_check(query)
     check = checks.create query: query
-    job_klass.constantize.perform_later check.id
+    job_klass.constantize.perform_later check.id, query.id
   end
 end

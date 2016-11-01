@@ -1,11 +1,4 @@
-class CheckFacebookJob < ApplicationJob
-  attr_accessor :check
-
-  def perform(check_id)
-    @check = Check.find check_id
-    check.update_attributes passed: passed
-    QueryChannel.broadcast_to query, { check: check }
-  end
+class CheckFacebookJob < BaseCheckJob
 
   private
 
@@ -14,14 +7,10 @@ class CheckFacebookJob < ApplicationJob
   end
 
   def response
-    @response ||= Faraday.get "https://www.facebook.com/#{term}"
+    @response ||= Faraday.get "https://www.facebook.com/#{username}"
   end
 
-  def term
+  def username
     query.term
-  end
-
-  def query
-    check.query
   end
 end
