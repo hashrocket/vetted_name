@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'react-rails'
 gem 'sass-rails'
 gem 'sidekiq'
+gem 'twitter'
 gem 'uglifier'
 
 group :development, :test do
