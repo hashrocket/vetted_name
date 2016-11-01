@@ -1,6 +1,4 @@
 class CheckTwitterJob < ApplicationJob
-  queue_as :default
-
   attr_accessor :check
 
   def perform(check_id)

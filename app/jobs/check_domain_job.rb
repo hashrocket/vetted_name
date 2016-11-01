@@ -1,6 +1,4 @@
-class CheckDomainJob < ActiveJob::Base
-  queue_as :default
-
+class CheckDomainJob < ApplicationJob
   attr_accessor :check
 
   def perform(check_id)
@@ -8,6 +6,8 @@ class CheckDomainJob < ActiveJob::Base
     check.update_attributes passed: passed
     QueryChannel.broadcast_to query, { check: check }
   end
+
+  private
 
   def passed
     !response.success?

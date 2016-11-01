@@ -1,6 +1,4 @@
-class CheckFacebookJob < ActiveJob::Base
-  queue_as :default
-
+class CheckFacebookJob < ApplicationJob
   attr_accessor :check
 
   def perform(check_id)
