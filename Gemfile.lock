@@ -79,6 +79,7 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    honeybadger (2.7.0)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -227,6 +228,7 @@ DEPENDENCIES
   decent_exposure
   faraday
   haml
+  honeybadger
   jbuilder
   jquery-rails
   listen

@@ -17,6 +17,7 @@ gem 'decent_exposure'
 gem 'haml'
 gem 'react-rails'
 gem 'sidekiq'
+gem 'honeybadger'
 
 group :development, :test do
   gem 'pry-rails'
