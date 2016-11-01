@@ -27,6 +27,10 @@ class CheckTwitterJob < ApplicationJob
   end
 
   def username
-    check.query.term
+    query.term
+  end
+
+  def query
+    check.query
   end
 end
