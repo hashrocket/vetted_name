@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_cable.allowed_request_origins = ['https://vetted-name.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://vetted-name.herokuapp.com', 'http://vetted.name']
 
   # Settings specified here will take precedence over those in config/application.rb.
 
