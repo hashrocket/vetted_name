@@ -5,9 +5,9 @@ class CheckTwitterJob < BaseCheckJob
   def passed
     begin
       client.user username
-      true
-    rescue Twitter::Error::NotFound
       false
+    rescue Twitter::Error::NotFound
+      true
     end
   end
 
