@@ -1,7 +1,7 @@
 class Query < ApplicationRecord
   has_many :checks
 
-  after_create :perform_checks
+  after_create :create_checks
 
   def as_json(*_)
     {
@@ -12,7 +12,7 @@ class Query < ApplicationRecord
 
   private
 
-  def perform_checks
-    Service.perform_all_checks self
+  def create_checks
+    Service.all.each { |service| service.checks.create query: self }
   end
 end

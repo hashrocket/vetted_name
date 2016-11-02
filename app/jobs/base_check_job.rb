@@ -1,8 +1,4 @@
 class BaseCheckJob < ApplicationJob
-  rescue_from(ActiveRecord::RecordNotFound) do
-    retry_job if query_exists?
-  end
-
   def perform(check_id, query_id)
     @check_id = check_id
     @query_id = query_id
@@ -23,9 +19,5 @@ class BaseCheckJob < ApplicationJob
 
   def query
     Query.find @query_id
-  end
-
-  def query_exists?
-    Query.exists? @query_id
   end
 end

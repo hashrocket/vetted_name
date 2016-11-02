@@ -9,4 +9,8 @@ class Check < ApplicationRecord
       passed: passed
     }
   end
+
+  def perform_job
+    service.job_klass.constantize.perform_later id, query.id
+  end
 end
