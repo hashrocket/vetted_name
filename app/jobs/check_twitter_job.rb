@@ -3,23 +3,24 @@ class CheckTwitterJob < BaseCheckJob
   private
 
   def passed
-    !!check_username
-  end
-
-  def check_username
-    json = JSON.parse response_body
-    json['valid']
-  end
-
-  def response_body
-    @response_body ||= Faraday.get(url).body
-  end
-
-  def url
-    "https://twitter.com/users/username_available?username=#{username}"
+    begin
+      client.user username
+      true
+    rescue Twitter::Error::NotFound
+      false
+    end
   end
 
   def username
     query.term
+  end
+
+  def client
+    @client ||= Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
+    end
   end
 end

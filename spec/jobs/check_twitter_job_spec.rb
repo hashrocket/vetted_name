@@ -5,17 +5,10 @@ describe CheckTwitterJob do
   let(:query) { FactoryGirl.create :query }
   let(:check) { query.checks.create service: service }
 
-  let(:response) { double(:response, body: body) }
-
-  before do
-    allow_any_instance_of(Faraday::Connection).to receive(:get).
-      and_return(response)
-  end
-
   context 'with an invalid username' do
-    let(:body) { '{"valid":false}' }
-
     it 'marks the check as not passed and sends a broadcast' do
+      allow(Twitter::REST::Client).to receive(:new).
+        and_raise(Twitter::Error::NotFound)
       expect(QueryChannel).to receive(:broadcast_to).
         with(query, { check: check })
       CheckTwitterJob.perform_now check.id, query.id
@@ -24,9 +17,10 @@ describe CheckTwitterJob do
   end
 
   context 'with a valid username' do
-    let(:body) { '{"valid":true}' }
-
     it 'marks the check as passed and sends a broadcast' do
+      client = double(:client, user: true)
+      allow(Twitter::REST::Client).to receive(:new).
+        and_return(client)
       expect(QueryChannel).to receive(:broadcast_to).
         with(query, { check: check })
       CheckTwitterJob.perform_now check.id, query.id
