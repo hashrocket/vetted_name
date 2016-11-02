@@ -9,6 +9,7 @@ gem 'puma'
 
 gem 'coffee-rails'
 gem 'decent_exposure'
+gem 'dnsimple'
 gem 'faraday'
 gem 'haml'
 gem 'honeybadger'
