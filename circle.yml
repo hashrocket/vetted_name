@@ -3,4 +3,4 @@ dependencies:
     - gem install bundler -v 1.13.6
 notify:
   webhooks:
-    - url: https://uplink-app.herokuapp.com/circle_hooks
+    - url: https://hooks.cybertail.systems/v1/E24A7EC73344576C4C1D12E6D8CF44E20597F90632DBE061923EAA4A134ED754
